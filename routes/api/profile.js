@@ -122,10 +122,8 @@ router.get('/', async (req, res) => {
 });
 
 // @route    GET api/profile/user/:user_id
-// @desc     Get profile by profile user ID
+// @desc     Get profile by user ID
 // @access   Public
-// @need     auth middleware
-
 router.get('/user/:user_id', async (req, res) => {
 	try {
 		const profile = await Profile.findOne({ user: req.params.user_id }).populate('user', [
@@ -135,13 +133,30 @@ router.get('/user/:user_id', async (req, res) => {
 		if (!profile) {
 			return res.status(400).json({ msg: 'Profile not found ' });
 		}
-
 		res.json(profile);
 	} catch (e) {
 		console.error(e.massage);
 		if (e.kind == 'ObjectId') {
 			return res.status(400).json({ msg: 'Profile not found ' });
 		}
+		res.status(500).send('Server Error');
+	}
+});
+
+// @route    DELETE api/profile
+// @desc     Delete profile, user & posts
+// @access   privet
+// @need     auth middleware
+
+router.delete('/', auth, async (req, res) => {
+	try {
+		// Remove Profile
+		await Profile.findOneAndRemove({ user: req.user.id });
+		// Remove User
+		await User.findOneAndRemove({ _id: req.user.id });
+		res.json({ msg: 'User deleted' });
+	} catch (e) {
+		console.error(e.massage);
 		res.status(500).send('Server Error');
 	}
 });
