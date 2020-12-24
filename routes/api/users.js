@@ -55,11 +55,10 @@ router.post(
 			// Save the User ==>
 			await user.save();
 
-			// 2. check post req ==>
+			// 2. check postman req ==>
 			// res.send('User registered');
 
 			//Return jsonwebtoken ==>
-
 			const payload = {
 				user: {
 					id: user.id,
