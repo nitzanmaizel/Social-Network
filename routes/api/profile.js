@@ -98,17 +98,27 @@ router.post('/', [
 
 			// If don't have a profile we want to Create new ==>
 			profile = new Profile(profileFields);
-			console.log(profile);
-
 			await profile.save();
 			res.json(profile);
 		} catch (e) {
 			console.error(e.message);
 			res.status(500).send('Server Error');
 		}
-		// console.log(profileFields);
-		// res.send('Hello World!!!');
 	},
 ]);
+
+// @route    GET api/profile
+// @desc     Get all profiles
+// @access   Public
+
+router.get('/', async (req, res) => {
+	try {
+		const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+		res.json(profiles);
+	} catch (e) {
+		console.error(e.massage);
+		res.status(500).send('Server Error');
+	}
+});
 
 module.exports = router;
