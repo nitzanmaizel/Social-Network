@@ -1,34 +1,35 @@
 {
-  "name": "Social-Network-App",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nitzanmaizel/Social-Network.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/nitzanmaizel/Social-Network/issues"
-  },
-  "homepage": "https://github.com/nitzanmaizel/Social-Network#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "config": "^3.3.3",
-    "express": "^4.17.1",
-    "express-validator": "^6.8.1",
-    "gravatar": "^1.8.1",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.8",
-    "request": "^2.88.2"
-  },
-  "devDependencies": {
-    "concurrently": "^5.3.0",
-    "nodemon": "^2.0.6"
-  }
+	"name": "Social-Network-App",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "node server.js",
+		"server": "nodemon server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nitzanmaizel/Social-Network.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/nitzanmaizel/Social-Network/issues"
+	},
+	"homepage": "https://github.com/nitzanmaizel/Social-Network#readme",
+	"dependencies": {
+		"bcryptjs": "^2.4.3",
+		"config": "^3.3.3",
+		"express": "^4.17.1",
+		"express-validator": "^6.8.1",
+		"gravatar": "^1.8.1",
+		"jsonwebtoken": "^8.5.1",
+		"mongoose": "^5.11.8",
+		"request": "^2.88.2"
+	},
+	"devDependencies": {
+		"concurrently": "^5.3.0",
+		"nodemon": "^2.0.6"
+	}
 }
