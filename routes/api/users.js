@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
+const { check, validationResult } = require('express-validator');
 
-// @route    GET api/users
-// @desc     Test route
+// @route    POST api/users
+// @desc     Register User
 // @access   Public
-// @need     auth middleware
 
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
+	console.log(req.body);
 	res.send('<h1>User route</h1>');
 });
 
